@@ -1,0 +1,11 @@
+---
+# handlers file for mywebrole
+- name: restartwebserver
+  service:
+     name: apache2
+     state: restarted
+
+- name: restarterbserver redhat
+  service:
+     name: httpd
+     state: restarted

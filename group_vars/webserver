@@ -1,0 +1,6 @@
+---
+var: values
+webserpakonubuntu: apache2
+webserpakonredhat: httpd
+javaserpakonubuntu: openjdk-8-jre
+javaserpakonredhat: java-1.8.0-openjdk

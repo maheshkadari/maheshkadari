@@ -1,0 +1,30 @@
+---
+ - hosts: webserver
+   become: yes
+   gather_facts: yes
+   tasks:
+    - name: install webserver
+      apt:
+        name: "{{webserpakonubuntu}}"
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: restarting apache2
+      service:
+         name: "{{webserpakonubuntu}}"
+         state: restarted 
+      when: ansible_os_family == "Debian"
+
+    - name: install webserver redhat
+      yum:
+        name: "{{webserpakonredhat}}"
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: restart webserver redhat 
+      service:
+         name: "{{webserpakonredhat}}"
+         state: restarted
+      when: ansible_os_family == "RedHat"
+
+    

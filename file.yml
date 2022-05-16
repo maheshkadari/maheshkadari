@@ -1,0 +1,7 @@
+---
+   - name: creat file 
+     file:
+      path: /home/ubuntu/mytestfile
+      state: touch
+     when: ansible_os_family == "Debian"
+       

@@ -1,0 +1,24 @@
+--- 
+ - hosts: webserver
+   become: yes
+   gather_facts: yes
+   tasks:
+    - name: install webserver in ubuntu
+      apt:
+        name: apache2
+        state: present
+      notify: restart webserver
+      when: ansible_os_family == "Debian"
+    
+    - name: i want to copy static file in ansible nodes
+      copy:
+          src: dynamicfile.j2 
+          dest: /var/www/html/index.html
+      notify: restart webserver
+      when: ansible_os_family == "Debian"
+
+   handlers:
+     - name: restart webserver
+       service:
+          name: apache2
+          state: restarted

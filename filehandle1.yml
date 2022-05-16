@@ -1,0 +1,8 @@
+---
+ - hosts: webserver
+   become: yes
+   tasks:
+   - name: copy dynamic files in nodes
+     template:
+       src: dynamicfile.j2
+       dest: /var/www/html/index.html

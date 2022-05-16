@@ -1,0 +1,16 @@
+---
+ - hosts: webserver
+   become: yes
+   gather_facts: yes
+   tasks:
+    - name: install java
+      apt:
+        name: "{{javaserpakonubuntu}}"
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: install java redhat
+      yum:
+        name: "{{javaserpakonredhat}}"
+        state: present
+      when: ansible_os_family == "RedHat"
