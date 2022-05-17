@@ -7,3 +7,4 @@
 - include_tasks: tomcatamdminuser.yml
 - include_tasks: tomcatservice.yml
 - include_tasks: tomcastart.yml
+- include_tasks: tomcatrestart.yml
