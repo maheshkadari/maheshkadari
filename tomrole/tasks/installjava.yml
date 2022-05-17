@@ -1,9 +1,4 @@
 ---
-- name: update 
-  apt:
-    name: update
-    state: present
-     
 - name: insatall java
   apt:
     name: default-jdk
